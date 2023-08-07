@@ -1,9 +1,9 @@
 // top right bottom left
 
 @mixin py($y) {
-  padding: $y 0px $y 0px;
+  padding: $y 0px;
 }
 
 @mixin px($x) {
-  padding: 0px $x 0px $x;
+  padding: 0px $x;
 }

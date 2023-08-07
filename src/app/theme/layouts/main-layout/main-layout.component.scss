@@ -58,15 +58,20 @@ $shadow-top: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menu-sidebar {
-  @include flex-center(row, start, start);
-  @include py(10px);
+  @include flex-center(column, center, start);
   width: 100%;
   height: calc(100% - $height-top);
   box-sizing: border-box;
-
+  padding:10px 5px;
 }
 
-.img-profile{
+app-side-menu {
+  width: 100%;
+  height: calc(100% - $height-top);
+  box-sizing: border-box;
+}
+
+.img-profile {
   cursor: pointer;
   width: 40px;
   height: 40px;

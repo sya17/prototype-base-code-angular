@@ -1,0 +1,39 @@
+$mobile-max-width: 767px;
+$tablet-min-width: 768px;
+$tablet-max-width: 1023px;
+$desktop-min-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-max-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-min-width}) and (max-width: #{$tablet-max-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-min-width}) {
+    @content;
+  }
+}
+
+// Usage example:
+.my-element {
+  width: 100%;
+
+  @include mobile {
+    width: 50%;
+  }
+
+  @include tablet {
+    width: 70%;
+  }
+
+  @include desktop {
+    width: 80%;
+  }
+}

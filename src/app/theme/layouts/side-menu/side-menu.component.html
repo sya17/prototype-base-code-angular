@@ -1,0 +1,14 @@
+<app-side-menu-list
+  [expandable]="haveChild(item)"
+  [title]="item.name"
+  *ngFor="let item of menus"
+>
+  <!-- Have Child -->
+  <ng-container *ngIf="haveChild(item)">
+    <app-side-menu [menus]="item.child!"> </app-side-menu>
+  </ng-container>
+
+  <app-side-menu-item *ngIf="!haveChild(item)">
+    {{ item.name }}
+  </app-side-menu-item>
+</app-side-menu-list>

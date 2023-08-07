@@ -1,0 +1,28 @@
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" opened="">
+    <!-- logo -->
+    <div class="logo-sidebar">LOGO</div>
+    <div class="menu-sidebar">
+      <app-side-menu [menus]="menus"> </app-side-menu>
+    </div>
+  </mat-drawer>
+
+  <!-- top navbar -->
+  <div class="top-navbar">
+    <div class="btn-close-menu" (click)="drawer.toggle()">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Close Menu Icon"
+        fontIcon="menu"
+      ></mat-icon>
+    </div>
+    <div>
+      <app-input placeholder="Search .. "></app-input>
+    </div>
+    <div>
+      <div class="img-profile"></div>
+    </div>
+  </div>
+
+  <ng-container class="main-container"> </ng-container>
+</mat-drawer-container>

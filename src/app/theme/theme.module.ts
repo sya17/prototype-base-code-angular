@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SharedModule } from '../shared/shared.module';
 import { SideMenuComponent } from './layouts/side-menu/side-menu.component';
 import { SideMenuItemComponent } from './layouts/side-menu/side-menu-item/side-menu-item.component';
@@ -23,6 +24,7 @@ export const AM_MODULES = [
   MatListModule,
   MatTreeModule,
   MatExpansionModule,
+  MatSnackBarModule,
 ];
 export const LAYOUT_COMPONENTS = [
   MainLayoutComponent,

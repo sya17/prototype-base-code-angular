@@ -6,6 +6,8 @@ import {
   QueryList,
 } from '@angular/core';
 import { SideMenuItemComponent } from '../side-menu-item/side-menu-item.component';
+import { IMenu } from 'src/app/core/data/IMenu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu-list',
@@ -13,15 +15,22 @@ import { SideMenuItemComponent } from '../side-menu-item/side-menu-item.componen
   styleUrls: ['./side-menu-list.component.scss'],
 })
 export class SideMenuListComponent {
-  @ContentChildren(SideMenuItemComponent)
-  navListItemComponents: QueryList<SideMenuItemComponent> | null = null;
+  @Input() iconMenu: string | undefined;
+  @Input() nameMenu: string | undefined;
+  @Input() linkMenu: string = '';
+  @Input() colorMenu: string = 'bg-gray-300';
+  @Input() customStyle: string = '';
+  @Input() childMenu: IMenu[] | undefined;
 
-  @Input() expandable = false;
+  openChild: boolean = false;
 
-  @Input() title = '';
+  clickOpenChild() {
+    this.openChild = !this.openChild;
+  }
 
-  @HostBinding('class.nav-list--expandable')
-  get expandableClass() {
-    return this.expandable;
+  ngOnInit(): void {}
+
+  isHaveChild(item: IMenu[]): boolean {
+    return item.length > 0;
   }
 }

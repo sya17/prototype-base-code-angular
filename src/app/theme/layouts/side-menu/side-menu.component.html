@@ -1,14 +1,32 @@
-<app-side-menu-list
-  [expandable]="haveChild(item)"
-  [title]="item.name"
-  *ngFor="let item of menus"
->
-  <!-- Have Child -->
-  <ng-container *ngIf="haveChild(item)">
-    <app-side-menu [menus]="item.child!"> </app-side-menu>
-  </ng-container>
+<!-- <ul [ngClass]="{ 'sub-menu': submenu }">
+  <li *ngFor="let item of menus">
+    <div class="menu-item">
+      <span>{{ item.name }}</span>
+      <span *ngIf="haveChild(item)">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Open Close Menu Icon"
+          fontIcon="keyboard_arrow_left"
+        ></mat-icon>
+      </span>
+    </div>
+    <ng-container *ngIf="haveChild(item)">
+      <app-side-menu
+        [menus]="item.child!"
+        [submenu]="true"
+      ></app-side-menu>
+    </ng-container>
+  </li>
+</ul> -->
 
-  <app-side-menu-item *ngIf="!haveChild(item)">
-    {{ item.name }}
-  </app-side-menu-item>
-</app-side-menu-list>
+<div class="w-full h-full flex-col items-start p-2 space-y-2 overflow-auto">
+  <ng-container *ngFor="let item of listMenu; let i = index">
+    <app-side-menu-list
+      class="flex"
+      [iconMenu]="item.icon"
+      [nameMenu]="item.name"
+      [linkMenu]="item.link!"
+      [childMenu]="item.childMenu"
+    ></app-side-menu-list>
+  </ng-container>
+</div>

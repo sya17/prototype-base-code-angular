@@ -1,4 +1,4 @@
-<ng-container *ngIf="expandable; else navListTemplate">
+<!-- <ng-container *ngIf="expandable; else navListTemplate">
   <mat-expansion-panel expandOnActiveLink class="mat-elevation-z0" >
     <mat-expansion-panel-header>
       <mat-panel-title>{{ title }}</mat-panel-title>
@@ -9,4 +9,42 @@
 
 <ng-template #navListTemplate>
   <mat-nav-list><ng-content></ng-content></mat-nav-list>
-</ng-template>
+</ng-template> -->
+
+<div class="w-full flex flex-col bg-gray-300 rounded-md">
+  <app-side-menu-item
+    [iconMenu]="iconMenu"
+    [nameMenu]="nameMenu"
+    [linkMenu]="linkMenu"
+    [colorMenu]="colorMenu"
+    [customStyle]="customStyle"
+    [parent]="this"
+    [isHaveChild]="isHaveChild(childMenu!)"
+    [parentLinkMenu]="linkMenu"
+  ></app-side-menu-item>
+  <div class="w-full bg-gray-200" *ngIf="openChild">
+    <ng-container *ngFor="let item of childMenu">
+      <ng-container *ngIf="isHaveChild(item.childMenu!); else elseTemplate">
+        <ng-container *ngFor="let itemX of item.childMenu">
+          <app-side-menu-list
+            class="flex"
+            [iconMenu]="itemX.icon"
+            [nameMenu]="itemX.name"
+            [linkMenu]="itemX.link!"
+            [childMenu]="itemX.childMenu"
+          ></app-side-menu-list>
+        </ng-container>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <app-side-menu-item
+          [iconMenu]="item?.icon"
+          [nameMenu]="item?.name"
+          [linkMenu]="item.link!"
+          [colorMenu]="'bg-gray-200'"
+          [customStyle]="'pl-6'"
+          [parentLinkMenu]="linkMenu"
+        ></app-side-menu-item>
+      </ng-template>
+    </ng-container>
+  </div>
+</div>

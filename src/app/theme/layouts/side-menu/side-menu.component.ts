@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IMenu } from 'src/app/core/data/IMenu';
+import { listMenu } from 'src/app/core/mock/sidebarMenuDummy';
 
 @Component({
   selector: 'app-side-menu',
@@ -7,13 +8,5 @@ import { IMenu } from 'src/app/core/data/IMenu';
   styleUrls: ['./side-menu.component.scss'],
 })
 export class SideMenuComponent {
-  @Input() menus: IMenu[] = [];
-
-  haveChild(menu: IMenu): boolean {
-    return (
-      menu.child?.length !== null &&
-      menu.child?.length !== undefined &&
-      menu.child?.length > 0
-    );
-  }
+  listMenu: IMenu[] = listMenu;
 }

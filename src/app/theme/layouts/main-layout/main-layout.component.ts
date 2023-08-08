@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 import { IMenu } from 'src/app/core/data/IMenu';
 
 @Component({
@@ -7,7 +8,15 @@ import { IMenu } from 'src/app/core/data/IMenu';
   styleUrls: ['./main-layout.component.scss'],
 })
 export class MainLayoutComponent implements OnInit {
+  @ViewChild('drawer') drawer: MatDrawer | undefined;
+
   ngOnInit(): void {
     this;
+  }
+
+  onCloseSide() {
+    console.log('closeee');
+
+    this.drawer?.toggle();
   }
 }

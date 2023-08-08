@@ -1,29 +1,47 @@
-<!-- <ng-container *ngIf="expandable; else navListTemplate">
-  <mat-expansion-panel expandOnActiveLink class="mat-elevation-z0" >
-    <mat-expansion-panel-header>
-      <mat-panel-title>{{ title }}</mat-panel-title>
-    </mat-expansion-panel-header>
-    <ng-container *ngTemplateOutlet="navListTemplate"></ng-container>
-  </mat-expansion-panel>
+<ng-container *ngIf="isHaveChild(menuData?.childMenu!); else elseTemplate">
+  <div class="w-full flex flex-col  rounded-md">
+    <app-side-menu-item
+      [menuDataChild]="menuData"
+      [colorMenu]="colorMenu"
+      [customStyle]="customStyle"
+      [parent]="this"
+      [isHaveChild]="true"
+    ></app-side-menu-item>
+    <div class="w-full " *ngIf="openChild">
+      <ng-container *ngFor="let item of menuData?.childMenu">
+        <app-side-menu-list
+          class="flex"
+          [paddingLeft]="paddingLeft"
+          [menuData]="item"
+        ></app-side-menu-list>
+      </ng-container>
+    </div>
+  </div>
 </ng-container>
+<ng-template #elseTemplate>
+  <div class="w-full flex flex-col  rounded-md">
+    <app-side-menu-item
+      [menuDataChild]="menuData"
+      [colorMenu]="colorMenu"
+      [customStyle]="customStyle"
+      [isHaveChild]="false"
+    ></app-side-menu-item>
+  </div>
+</ng-template>
 
-<ng-template #navListTemplate>
-  <mat-nav-list><ng-content></ng-content></mat-nav-list>
-</ng-template> -->
-
-<div class="w-full flex flex-col bg-gray-300 rounded-md">
+<!-- <div class="w-full flex flex-col bg-gray-300 rounded-md">
   <app-side-menu-item
-    [iconMenu]="iconMenu"
-    [nameMenu]="nameMenu"
-    [linkMenu]="linkMenu"
+    [iconMenu]="menuData?.icon"
+    [nameMenu]="menuData?.name"
+    [linkMenu]="menuData?.link!"
     [colorMenu]="colorMenu"
     [customStyle]="customStyle"
     [parent]="this"
-    [isHaveChild]="isHaveChild(childMenu!)"
-    [parentLinkMenu]="linkMenu"
+    [isHaveChild]="isHaveChild(menuData?.childMenu!)"
+    [parentLinkMenu]="menuData?.link!"
   ></app-side-menu-item>
   <div class="w-full bg-gray-200" *ngIf="openChild">
-    <ng-container *ngFor="let item of childMenu">
+    <ng-container *ngFor="let item of menuData?.childMenu">
       <ng-container *ngIf="isHaveChild(item.childMenu!); else elseTemplate">
         <ng-container *ngFor="let itemX of item.childMenu">
           <app-side-menu-list
@@ -47,4 +65,4 @@
       </ng-template>
     </ng-container>
   </div>
-</div>
+</div> -->

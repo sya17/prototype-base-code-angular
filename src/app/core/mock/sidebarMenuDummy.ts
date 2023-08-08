@@ -1,4 +1,4 @@
-import { IMenu } from "../data/IMenu";
+import { IMenu } from '../data/IMenu';
 
 export const listMenu: IMenu[] = [
   {
@@ -84,5 +84,13 @@ export const listMenu: IMenu[] = [
         ],
       },
     ],
+  },
+  {
+    id: '3',
+    name: 'masterdata',
+    description: 'broadcast',
+    icon: 'screen_share',
+    link: 'broadcast',
+    childMenu: [],
   },
 ];

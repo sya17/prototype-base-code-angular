@@ -10,11 +10,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
 import { SharedModule } from '../shared/shared.module';
 import { SideMenuComponent } from './layouts/side-menu/side-menu.component';
 import { SideMenuItemComponent } from './layouts/side-menu/side-menu-item/side-menu-item.component';
 import { RouterModule } from '@angular/router';
 import { SideMenuListComponent } from './layouts/side-menu/side-menu-list/side-menu-list.component';
+import { HeadLayoutComponent } from './layouts/head-layout/head-layout.component';
 
 export const AM_MODULES = [
   MatSidenavModule,
@@ -25,12 +27,14 @@ export const AM_MODULES = [
   MatTreeModule,
   MatExpansionModule,
   MatSnackBarModule,
+  MatTabsModule,
 ];
 export const LAYOUT_COMPONENTS = [
   MainLayoutComponent,
   SideMenuComponent,
   SideMenuItemComponent,
   SideMenuListComponent,
+  HeadLayoutComponent,
 ];
 export const PIPES = [];
 export const CUSTOM_COMPONENTS = [];

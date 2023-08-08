@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../theme/theme.module';
+import { MainworkspaceModule } from './mainworkspace/mainworkspace.module';
 
 @NgModule({
   declarations: [PagesComponent],
-  imports: [PagesRoutingModule, CommonModule, ThemeModule],
+  imports: [PagesRoutingModule, CommonModule, ThemeModule, MainworkspaceModule],
 })
 export class PagesModule {}

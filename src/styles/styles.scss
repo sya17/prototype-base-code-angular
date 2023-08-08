@@ -46,6 +46,11 @@ $base-code-angular-theme: mat.define-light-theme(
 @tailwind components;
 @tailwind utilities;
 
+.height-top{
+  height: 8%;
+}
+
+
 html,
 body {
   height: 100%;

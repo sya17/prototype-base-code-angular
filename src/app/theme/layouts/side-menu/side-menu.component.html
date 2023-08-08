@@ -1,32 +1,10 @@
-<!-- <ul [ngClass]="{ 'sub-menu': submenu }">
-  <li *ngFor="let item of menus">
-    <div class="menu-item">
-      <span>{{ item.name }}</span>
-      <span *ngIf="haveChild(item)">
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Open Close Menu Icon"
-          fontIcon="keyboard_arrow_left"
-        ></mat-icon>
-      </span>
-    </div>
-    <ng-container *ngIf="haveChild(item)">
-      <app-side-menu
-        [menus]="item.child!"
-        [submenu]="true"
-      ></app-side-menu>
-    </ng-container>
-  </li>
-</ul> -->
-
-<div class="w-full h-full flex-col items-start p-2 space-y-2 overflow-auto">
+<div class="w-full h-full flex-col items-start space-y-1 overflow-auto">
+  <div class="w-full flex justify-center items-center height-top mb-4 shadow-sm">LOGO</div>
   <ng-container *ngFor="let item of listMenu; let i = index">
     <app-side-menu-list
-      class="flex"
-      [iconMenu]="item.icon"
-      [nameMenu]="item.name"
-      [linkMenu]="item.link!"
-      [childMenu]="item.childMenu"
+      class="flex px-2"
+      [menuData]="item"
+      [paddingLeft]="0"
     ></app-side-menu-list>
   </ng-container>
 </div>

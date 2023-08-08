@@ -1,28 +1,14 @@
-<mat-drawer-container class="drawer-container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side" opened="">
-    <!-- logo -->
-    <div class="logo-sidebar">LOGO</div>
-    <div class="menu-sidebar">
-      <app-side-menu> </app-side-menu>
-    </div>
+<mat-drawer-container class="w-full h-full flex" autosize>
+  <!-- side -->
+  <mat-drawer #drawer class="w-[20%] h-full" mode="side" opened="">
+    <ng-content select="app-side-menu"></ng-content>
   </mat-drawer>
 
-  <!-- top navbar -->
-  <div class="top-navbar">
-    <div class="btn-close-menu" (click)="drawer.toggle()">
-      <mat-icon
-        aria-hidden="false"
-        aria-label="Close Menu Icon"
-        fontIcon="menu"
-      ></mat-icon>
-    </div>
-    <div>
-      <app-input placeholder="Search .. "></app-input>
-    </div>
-    <div>
-      <div class="img-profile"></div>
-    </div>
-  </div>
-
-  <ng-container class="main-container"> </ng-container>
+  
+  <ng-container class="w-full h-full flex flex-col">
+    <!-- top -->
+    <ng-content select="app-head-layout"></ng-content>
+    <!-- main -->
+    <ng-content select="app-mainworkspace"></ng-content>
+  </ng-container>
 </mat-drawer-container>

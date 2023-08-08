@@ -1,23 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SideMenuListComponent } from '../side-menu-list/side-menu-list.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { IMenu } from 'src/app/core/data/IMenu';
 
 @Component({
   selector: 'app-side-menu-item',
   template: `<div
     class="w-full {{
       colorMenu
-    }} rounded-md inline-flex justify-between items-center px-3 py-2 cursor-pointer hover:bg-gray-400 space-x-2 {{
-      customStyle
-    }}"
-    (click)="openChildOrRedirectTo(isHaveChild, finalLinkMenu)"
+    }} rounded-md inline-flex justify-between items-center px-3 py-2 cursor-pointer hover:bg-gray2color space-x-2 "
+    [style]="customStyle"
+    (click)="openChildOrRedirectTo(isHaveChild)"
   >
     <div>
-      <mat-icon>{{ iconMenu }}</mat-icon>
+      <mat-icon>{{ menuDataChild?.icon }}</mat-icon>
     </div>
     <div class="float-left flex justify-start items-center w-full">
-      <span class="">{{ nameMenu }}</span>
+      <span class="">{{ menuDataChild?.name }}</span>
     </div>
     <div>
       <mat-icon *ngIf="isHaveChild">{{
@@ -29,52 +29,22 @@ import { Router } from '@angular/router';
   </div>`,
   styleUrls: ['./side-menu-item.component.scss'],
 })
-export class SideMenuItemComponent {
-  @Input() iconMenu: string | undefined;
-  @Input() nameMenu: string | undefined;
-  @Input() linkMenu: string = '';
-  @Input() parentLinkMenu: string = '';
+export class SideMenuItemComponent implements OnInit {
   @Input() colorMenu: string = 'bg-gray-300';
   @Input() customStyle: string = '';
   @Input() isHaveChild: boolean = false;
   @Input() parent: SideMenuListComponent | undefined;
 
-  finalLinkMenu: string = '';
-
-  constructor(private router: Router, private _snackBar: MatSnackBar) {}
+  @Input() menuDataChild: IMenu | undefined;
 
   ngOnInit(): void {
-    this.finalLinkMenu += this.parentLinkMenu + '/' + this.linkMenu;
+    console.log(this.customStyle);
+    
   }
 
-  openChildOrRedirectTo(isHaveChild: boolean, link: string) {
+  openChildOrRedirectTo(isHaveChild: boolean) {
     if (isHaveChild) {
       this.parent?.clickOpenChild();
-    } else {
-      this.redirectTo(link);
     }
-  }
-
-  async redirectTo(link: string) {
-    console.log('redirectTo = ', link);
-    console.log('redirectTo = ', this.router.url);
-    await this.router.navigate(['/']);
-    if (link.length !== 0) {
-      if (!this.router.url.includes(link)) {
-        let url = this.router.url + '/' + link;
-        console.log('url = ', url);
-        this.router.navigateByUrl(url);
-      }
-    } else {
-      // alert
-      this.alert('Comming Soon', 'X');
-    }
-  }
-
-  alert(message: string, action: string) {
-    this._snackBar.open(message, action);
-    setTimeout(() => {
-      this._snackBar.dismiss();
-    }, 5000);
   }
 }

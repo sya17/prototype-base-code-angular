@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { IMenu } from 'src/app/core/data/IMenu';
+import { IMenu } from 'src/app/core/data/sidemenu/IMenu';
 
 @Component({
   selector: 'app-main-layout',

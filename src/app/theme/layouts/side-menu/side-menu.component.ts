@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IMenu } from 'src/app/core/data/IMenu';
+import { IMenu } from 'src/app/core/data/sidemenu/IMenu';
 import { listMenu } from 'src/app/core/mock/sidebarMenuDummy';
 
 @Component({

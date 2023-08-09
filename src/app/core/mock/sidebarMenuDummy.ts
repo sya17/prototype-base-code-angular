@@ -1,4 +1,4 @@
-import { IMenu } from '../data/IMenu';
+import { IMenu } from '../data/sidemenu/IMenu';
 
 export const listMenu: IMenu[] = [
   {
@@ -90,7 +90,7 @@ export const listMenu: IMenu[] = [
     name: 'masterdata',
     description: 'broadcast',
     icon: 'screen_share',
-    link: 'broadcast',
+    link: 'app-test',
     childMenu: [],
   },
 ];

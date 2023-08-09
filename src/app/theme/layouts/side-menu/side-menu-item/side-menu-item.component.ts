@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SideMenuListComponent } from '../side-menu-list/side-menu-list.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { IMenu } from 'src/app/core/data/IMenu';
+import { IMenu } from 'src/app/core/data/sidemenu/IMenu';
+import { SidemenuService } from 'src/app/core/service/sidemenu.service';
 
 @Component({
   selector: 'app-side-menu-item',
@@ -11,7 +12,7 @@ import { IMenu } from 'src/app/core/data/IMenu';
       colorMenu
     }} rounded-md inline-flex justify-between items-center px-3 py-2 cursor-pointer hover:bg-gray2color space-x-2 "
     [style]="customStyle"
-    (click)="openChildOrRedirectTo(isHaveChild)"
+    (click)="openChildOrRedirectTo(isHaveChild, menuDataChild!)"
   >
     <div>
       <mat-icon>{{ menuDataChild?.icon }}</mat-icon>
@@ -34,17 +35,17 @@ export class SideMenuItemComponent implements OnInit {
   @Input() customStyle: string = '';
   @Input() isHaveChild: boolean = false;
   @Input() parent: SideMenuListComponent | undefined;
-
   @Input() menuDataChild: IMenu | undefined;
 
-  ngOnInit(): void {
-    console.log(this.customStyle);
-    
-  }
+  constructor(private sideMenuService: SidemenuService) {}
 
-  openChildOrRedirectTo(isHaveChild: boolean) {
+  ngOnInit(): void {}
+
+  openChildOrRedirectTo(isHaveChild: boolean, menu: IMenu) {
     if (isHaveChild) {
       this.parent?.clickOpenChild();
+    } else {
+      this.sideMenuService.openMenu(menu);
     }
   }
 }

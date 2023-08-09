@@ -17,10 +17,12 @@ export const CORE_PROVIDERS = [
   ...DATA_SERVICES_MODULES,
   ...DATA_SERVICES_UTIL,
 ];
+export const DIRECTIVES = [];
 
 @NgModule({
-  declarations: [],
+  declarations: [...DIRECTIVES],
   imports: [CommonModule],
+  exports: [...DIRECTIVES],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
@@ -30,7 +32,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders<CoreModule> {
     return {
       ngModule: CoreModule,
-      providers: [...CORE_PROVIDERS],
+      providers: [...CORE_PROVIDERS, ...DIRECTIVES],
     };
   }
 }

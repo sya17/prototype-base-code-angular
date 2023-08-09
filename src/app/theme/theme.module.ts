@@ -12,6 +12,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { SharedModule } from '../shared/shared.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { SideMenuComponent } from './layouts/side-menu/side-menu.component';
 import { SideMenuItemComponent } from './layouts/side-menu/side-menu-item/side-menu-item.component';
 import { RouterModule } from '@angular/router';
@@ -29,6 +30,7 @@ export const AM_MODULES = [
   MatExpansionModule,
   MatSnackBarModule,
   MatTabsModule,
+  MatToolbarModule,
 ];
 export const LAYOUT_COMPONENTS = [
   MainLayoutComponent,

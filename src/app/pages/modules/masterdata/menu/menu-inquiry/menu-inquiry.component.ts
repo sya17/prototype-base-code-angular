@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DIR_MENU } from '../menu.module';
 
 @Component({
   selector: 'app-menu-inquiry',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class MenuInquiryComponent {
 
+  // content:string = 'app-menu-inquiry';
+  // dirContent = DIR_MENU;
 }

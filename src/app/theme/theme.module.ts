@@ -18,6 +18,7 @@ import { SideMenuItemComponent } from './layouts/side-menu/side-menu-item/side-m
 import { RouterModule } from '@angular/router';
 import { SideMenuListComponent } from './layouts/side-menu/side-menu-list/side-menu-list.component';
 import { HeadLayoutComponent } from './layouts/head-layout/head-layout.component';
+import { ContentLayoutComponent } from './layouts/content-layout/content-layout.component';
 
 export const AM_MODULES = [
   MatSidenavModule,
@@ -37,6 +38,7 @@ export const LAYOUT_COMPONENTS = [
   SideMenuItemComponent,
   SideMenuListComponent,
   HeadLayoutComponent,
+  ContentLayoutComponent,
 ];
 export const PIPES = [];
 export const CUSTOM_COMPONENTS = [];

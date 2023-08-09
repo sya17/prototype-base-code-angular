@@ -101,6 +101,24 @@ export const listMenu: IMenu[] = [
     ],
   },
   {
+    id: '97284970814958',
+    name: 'Masterdata',
+    description: 'Masterdata Menu',
+    icon: 'settings',
+    subscribe: true,
+    childMenu: [
+      {
+        id: '97284970814958',
+        name: 'Menu',
+        description: 'menu',
+        icon: 'menu',
+        link: 'app-menu-inquiry',
+        subscribe: true,
+        childMenu: [],
+      },
+    ],
+  },
+  {
     id: '3',
     name: 'masterdata',
     description: 'broadcast',

@@ -24,11 +24,19 @@
           </div>
         </div>
       </ng-template>
-      <app-mainworkspace-content
-        [inquiry]="item.link!"
-        class="w-full h-full"
-      ></app-mainworkspace-content>
-      <!-- {{ item.link }} -->
+
+      <!-- main content -->
+      <div class="w-full bg-white mt-2 rounded-md overflow-auto" style="height: calc(100vh - 20vh)">
+        <app-tool-bar></app-tool-bar>
+        <!-- Form -->
+        <div class="p-3">
+          <!-- <ng-content select="app-mainworkspace-content"></ng-content> -->
+          <app-mainworkspace-content
+            [inquiry]="item.link!"
+            class="w-full h-full"
+          ></app-mainworkspace-content>
+        </div>
+      </div>
     </mat-tab>
   </mat-tab-group>
 </div>

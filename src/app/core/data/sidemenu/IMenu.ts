@@ -4,5 +4,6 @@ export interface IMenu {
   description: string;
   link?: string;
   icon?: string;
+  default?: boolean;
   childMenu?: IMenu[];
 }

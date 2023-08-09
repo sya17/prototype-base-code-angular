@@ -5,14 +5,21 @@
   <mat-tab-group
     #matTabGroup
     animationDuration="0ms"
-    style="width: 100%"
-    [selectedIndex]="selectedIndex"
+    fitInkBarToContent
+    mat-align-tabs="start"
+    mat-stretch-tabs="false"
   >
-    <mat-tab style="width: 20px" *ngFor="let item of tabs">
-      <ng-template mat-tab-label style="width: 20px">
+    <mat-tab *ngFor="let item of tabs">
+      <ng-template mat-tab-label>
         <div class="w-full h-full inline-flex justify-between items-center">
           <span> {{ item.name }} </span>
-          <mat-icon>close</mat-icon>
+          <div
+            *ngIf="!item.default"
+            class="cursor-pointer"
+            (click)="onCloseMenu(item)"
+          >
+            <mat-icon>close</mat-icon>
+          </div>
         </div>
       </ng-template>
       <app-mainworkspace-content

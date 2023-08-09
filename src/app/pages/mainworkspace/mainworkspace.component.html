@@ -3,15 +3,17 @@
   style="height: calc(100% - 8%)"
 >
   <mat-tab-group
+    class="w-full h-full"
     #matTabGroup
     animationDuration="0ms"
     fitInkBarToContent
     mat-align-tabs="start"
     mat-stretch-tabs="false"
+    [selectedIndex]="selected.value"
   >
-    <mat-tab *ngFor="let item of tabs">
+    <mat-tab class="w-full h-full" *ngFor="let item of tabs">
       <ng-template mat-tab-label>
-        <div class="w-full h-full inline-flex justify-between items-center">
+        <div class="w-full h-full flex justify-between items-center truncate rounded-md">
           <span> {{ item.name }} </span>
           <div
             *ngIf="!item.default"
@@ -24,6 +26,7 @@
       </ng-template>
       <app-mainworkspace-content
         [inquiry]="item.link!"
+        class="w-full h-full"
       ></app-mainworkspace-content>
       <!-- {{ item.link }} -->
     </mat-tab>

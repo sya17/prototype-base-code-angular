@@ -3,7 +3,7 @@ import { IMenu } from '../data/sidemenu/IMenu';
 export const listMenu: IMenu[] = [
   {
     id: '0',
-    name: 'Dashboard',
+    name: 'DashboardDashboardDashboardDashboardDashboardDashboard',
     description: 'Dashboard',
     icon: 'dashboard',
     link: 'app-dashboard',

@@ -10,7 +10,7 @@ import { SidemenuService } from 'src/app/core/service/sidemenu.service';
   template: `<div
     class="w-full {{
       colorMenu
-    }} rounded-md inline-flex justify-between items-center px-3 py-2 cursor-pointer hover:bg-gray2color space-x-2 "
+    }} rounded-md inline-flex justify-between items-center px-3 py-2 cursor-pointer hover:bg-gray2color space-x-2 truncate"
     [style]="customStyle"
     (click)="openChildOrRedirectTo(isHaveChild, menuDataChild!)"
   >

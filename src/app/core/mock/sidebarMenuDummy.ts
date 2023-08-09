@@ -2,6 +2,14 @@ import { IMenu } from '../data/sidemenu/IMenu';
 
 export const listMenu: IMenu[] = [
   {
+    id: '0',
+    name: 'Dashboard',
+    description: 'Dashboard',
+    icon: 'dashboard',
+    link: 'app-dashboard',
+    childMenu: [],
+  },
+  {
     id: '1',
     name: 'Broadcast',
     description: 'broadcast',

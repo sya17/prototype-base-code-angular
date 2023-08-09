@@ -1,20 +1,23 @@
-import { Component, ComponentFactoryResolver, Input, ViewContainerRef } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  Input,
+  ViewContainerRef,
+} from '@angular/core';
 import { COMPONENTS } from 'src/app/constant/foundation/foundation.constant';
 
 @Component({
   selector: 'app-mainworkspace-content',
   templateUrl: './mainworkspace-content.component.html',
-  styleUrls: ['./mainworkspace-content.component.scss']
+  styleUrls: ['./mainworkspace-content.component.scss'],
 })
 export class MainworkspaceContentComponent {
-  @Input() inquiry: string = "";
+  @Input() inquiry: string = '';
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
-    private viewContainerRef: ViewContainerRef,
-  ) {
-    
-  }
+    private viewContainerRef: ViewContainerRef
+  ) {}
 
   ngOnInit(): void {
     this.loadDynamicComponent();
@@ -22,8 +25,10 @@ export class MainworkspaceContentComponent {
 
   loadDynamicComponent(): void {
     let component = COMPONENTS[this.inquiry];
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-    this.viewContainerRef.createComponent(componentFactory);
+    if (component !== undefined) {
+      const componentFactory =
+        this.componentFactoryResolver.resolveComponentFactory(component);
+      this.viewContainerRef.createComponent(componentFactory);
+    }
   }
-
 }

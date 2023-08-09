@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SideMenuListComponent } from '../side-menu-list/side-menu-list.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { IMenu } from 'src/app/core/data/sidemenu/IMenu';
 import { SidemenuService } from 'src/app/core/service/sidemenu.service';
+import { AlertSnackbarService } from 'src/app/core/utils/alert-snackbar.service';
 
 @Component({
   selector: 'app-side-menu-item',
@@ -37,15 +36,22 @@ export class SideMenuItemComponent implements OnInit {
   @Input() parent: SideMenuListComponent | undefined;
   @Input() menuDataChild: IMenu | undefined;
 
-  constructor(private sideMenuService: SidemenuService) {}
+  constructor(
+    private sideMenuService: SidemenuService,
+    private alertSnackbar: AlertSnackbarService
+  ) {}
 
   ngOnInit(): void {}
 
   openChildOrRedirectTo(isHaveChild: boolean, menu: IMenu) {
-    if (isHaveChild) {
-      this.parent?.clickOpenChild();
+    if (menu.subscribe) {
+      if (isHaveChild) {
+        this.parent?.clickOpenChild();
+      } else {
+        this.sideMenuService.openMenu(menu);
+      }
     } else {
-      this.sideMenuService.openMenu(menu);
+      this.alertSnackbar.alert('center', 'top', 'cannot access menu!');
     }
   }
 }

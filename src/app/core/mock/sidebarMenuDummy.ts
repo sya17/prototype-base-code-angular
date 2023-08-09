@@ -7,6 +7,7 @@ export const listMenu: IMenu[] = [
     description: 'Dashboard',
     icon: 'dashboard',
     link: 'app-dashboard',
+    subscribe: true,
     childMenu: [],
   },
   {
@@ -15,6 +16,7 @@ export const listMenu: IMenu[] = [
     description: 'broadcast',
     icon: 'screen_share',
     link: 'broadcast',
+    subscribe: true,
     childMenu: [
       {
         id: '11',
@@ -22,6 +24,7 @@ export const listMenu: IMenu[] = [
         description: 'pages',
         icon: 'pages',
         link: 'pages',
+        subscribe: true,
         childMenu: [],
       },
       {
@@ -49,6 +52,7 @@ export const listMenu: IMenu[] = [
     description: 'settings',
     icon: 'settings',
     link: 'settings',
+    subscribe: true,
     childMenu: [
       {
         id: '21',
@@ -56,6 +60,7 @@ export const listMenu: IMenu[] = [
         description: 'pages',
         icon: 'pages',
         link: 'pages',
+        subscribe: true,
         childMenu: [],
       },
       {
@@ -64,6 +69,7 @@ export const listMenu: IMenu[] = [
         description: 'group',
         icon: 'group',
         link: 'group',
+        subscribe: true,
         childMenu: [],
       },
       {
@@ -72,6 +78,7 @@ export const listMenu: IMenu[] = [
         description: 'account',
         icon: 'account_box',
         link: 'account',
+        subscribe: true,
         childMenu: [
           // {
           //   id: '23',
@@ -99,6 +106,7 @@ export const listMenu: IMenu[] = [
     description: 'broadcast',
     icon: 'screen_share',
     link: 'app-test',
+    subscribe: true,
     childMenu: [],
   },
 ];

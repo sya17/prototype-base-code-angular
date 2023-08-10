@@ -15,8 +15,6 @@ export class MainLayoutComponent implements OnInit {
   }
 
   onCloseSide() {
-    console.log('closeee');
-
     this.drawer?.toggle();
   }
 }

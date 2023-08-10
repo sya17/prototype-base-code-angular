@@ -26,6 +26,15 @@ export const listMenu: IMenu[] = [
         subscribe: true,
         childMenu: [],
       },
+      {
+        id: '7984367823948',
+        name: 'Roles',
+        description: 'roles',
+        icon: 'roles',
+        link: 'app-roles',
+        subscribe: true,
+        childMenu: [],
+      },
     ],
   },
   {

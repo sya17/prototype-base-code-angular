@@ -13,7 +13,9 @@
   >
     <mat-tab class="w-full h-full" *ngFor="let item of tabs">
       <ng-template mat-tab-label>
-        <div class="w-full h-full flex justify-between items-center truncate rounded-md">
+        <div
+          class="w-full h-full flex justify-between items-center truncate rounded-md"
+        >
           <span> {{ item.name }} </span>
           <div
             *ngIf="!item.default"
@@ -26,13 +28,20 @@
       </ng-template>
 
       <!-- main content -->
-      <div class="w-full bg-white mt-2 rounded-md overflow-auto" style="height: calc(100vh - 20vh)">
-        <app-tool-bar [menuToolbarAccess]="checkAccessMenu(item.accessMenu!)"></app-tool-bar>
+      <div
+        class="w-full bg-white mt-2 rounded-md overflow-auto"
+        style="height: calc(100vh - 20vh)"
+      >
+        <app-tool-bar
+          [menuToolbarAccess]="checkAccessMenu(item.accessMenu!)"
+          [idMenu]="item.id"
+        ></app-tool-bar>
         <!-- Form -->
         <div class="p-3">
           <!-- <ng-content select="app-mainworkspace-content"></ng-content> -->
           <app-mainworkspace-content
             [inquiry]="item.link!"
+            [id]="item.id"
             class="w-full h-full"
           ></app-mainworkspace-content>
         </div>

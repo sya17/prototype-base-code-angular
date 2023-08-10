@@ -8,6 +8,7 @@ import { MainworkspaceModule } from './mainworkspace/mainworkspace.module';
 import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.component';
 import { MenuModule } from './modules/masterdata/menu/menu.module';
 import { SharedModule } from '../shared/shared.module';
+import { RolesModule } from './modules/masterdata/roles/roles.module';
 
 @NgModule({
   declarations: [PagesComponent, TestComponent, DashboardComponent],
@@ -17,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     ThemeModule,
     MainworkspaceModule,
     MenuModule,
+    RolesModule,
     SharedModule,
   ],
 })

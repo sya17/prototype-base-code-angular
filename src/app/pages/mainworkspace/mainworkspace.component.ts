@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatTabGroup } from '@angular/material/tabs';
 import { COMPONENTS } from 'src/app/constant/foundation/foundation.constant';
 import { IMenu, IMenuProp } from 'src/app/core/data/sidemenu/IMenu';
+import { ContentService } from 'src/app/core/service/content.service';
 import { SidemenuService } from 'src/app/core/service/sidemenu.service';
 
 @Component({
@@ -14,7 +15,10 @@ export class MainworkspaceComponent implements OnInit {
   tabs: IMenu[] = [];
   selected = new FormControl(0);
 
-  constructor(private sideMenuService: SidemenuService) {}
+  constructor(
+    private sideMenuService: SidemenuService,
+    private contentService: ContentService
+  ) {}
 
   ngOnInit(): void {
     this.tabs = this.sideMenuService.menus;
@@ -23,6 +27,7 @@ export class MainworkspaceComponent implements OnInit {
 
   onCloseMenu(menu: IMenu) {
     this.sideMenuService.closeMenu(menu);
+    this.contentService.removePage(menu.id);
   }
 
   checkAccessMenu(acMenu: IMenuProp): IMenuProp {

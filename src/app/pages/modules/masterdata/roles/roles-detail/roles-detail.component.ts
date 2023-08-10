@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { ContentService } from 'src/app/core/service/content.service';
 
 @Component({
-  selector: 'app-menu-detail',
-  templateUrl: './menu-detail.component.html',
-  styleUrls: ['./menu-detail.component.scss'],
+  selector: 'app-roles-detail',
+  templateUrl: './roles-detail.component.html',
+  styleUrls: ['./roles-detail.component.scss'],
 })
-export class MenuDetailComponent {
+export class RolesDetailComponent {
   @Input() idMenuModule: string = '';
   constructor(private contentService: ContentService) {}
 
@@ -19,6 +19,6 @@ export class MenuDetailComponent {
   }
 
   onNextPage() {
-    this.contentService.nextPage(this.idMenuModule, 'app-menu-detail-detail');
+    this.contentService.nextPage(this.idMenuModule, 'app-roles-detail-detail');
   }
 }

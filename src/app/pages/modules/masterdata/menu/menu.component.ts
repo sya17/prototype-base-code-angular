@@ -1,6 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { MenuInquiryComponent } from './menu-inquiry/menu-inquiry.component';
 import { MenuDetailComponent } from './menu-detail/menu-detail.component';
+import { ToolBarService } from 'src/app/core/service/tool-bar.service';
+import { Subscription } from 'rxjs';
+import { MenuDetailDetailComponent } from './menu-detail-detail/menu-detail-detail.component';
+import { IContentPage } from 'src/app/core/data/main/IContentPage';
+import { ContentService } from 'src/app/core/service/content.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-menu',
@@ -8,14 +20,23 @@ import { MenuDetailComponent } from './menu-detail/menu-detail.component';
     <app-content-layout
       [content]="content"
       [dirContent]="DIR_CONTENT"
+      [idMenuModule]="idMenu"
     ></app-content-layout>
   </div>`,
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
+  @Input() idMenu: string = '';
+
   content: string = 'app-menu-inquiry';
-  // content: string = 'app-menu-detail';
   DIR_CONTENT = {
     'app-menu-inquiry': MenuInquiryComponent,
     'app-menu-detail': MenuDetailComponent,
+    'app-menu-detail-detail': MenuDetailDetailComponent,
   };
+
+  constructor(private contentService: ContentService) {}
+
+  ngOnInit(): void {
+    this.contentService.nextPage(this.idMenu, this.content);
+  }
 }

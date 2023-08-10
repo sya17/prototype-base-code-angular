@@ -10,10 +10,11 @@ export const MENU_COMPONENTS = [
   MenuInquiryComponent,
   MenuDetailComponent,
   MenuComponent,
+  MenuDetailDetailComponent,
 ];
 
 @NgModule({
-  declarations: [...MENU_COMPONENTS, MenuDetailDetailComponent],
+  declarations: [...MENU_COMPONENTS],
   imports: [CommonModule, ThemeModule],
   exports: [...MENU_COMPONENTS],
 })

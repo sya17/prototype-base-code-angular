@@ -13,6 +13,7 @@ import { COMPONENTS } from 'src/app/constant/foundation/foundation.constant';
 })
 export class MainworkspaceContentComponent {
   @Input() inquiry: string = '';
+  @Input() id: string = '';
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -28,7 +29,12 @@ export class MainworkspaceContentComponent {
     if (component !== undefined) {
       const componentFactory =
         this.componentFactoryResolver.resolveComponentFactory(component);
-      this.viewContainerRef.createComponent(componentFactory);
+      const componentRef =
+        this.viewContainerRef.createComponent(componentFactory);
+
+      // Lempar Id Menu Ke Component Yang di render
+      const instance = componentRef.instance as any;
+      instance.idMenu = this.id;
     }
   }
 }

@@ -5,6 +5,7 @@
     mat-button
     class="w-fit flex justify-center items-center"
     [disabled]="!menuToolbarAccess.onBack"
+    (click)="onBack()"
   >
     <mat-icon>arrow_back</mat-icon>
   </button>
@@ -12,6 +13,7 @@
     mat-button
     class="w-fit flex justify-center items-center"
     [disabled]="!menuToolbarAccess.onSave"
+    (click)="onSave()"
   >
     <mat-icon>save</mat-icon>
   </button>
@@ -19,6 +21,7 @@
     mat-button
     class="w-4 flex justify-center items-center"
     [disabled]="!menuToolbarAccess.onDelete"
+    (click)="onDelete()"
   >
     <mat-icon>delete</mat-icon>
   </button>
@@ -26,6 +29,7 @@
     mat-button
     class="w-fit flex justify-center items-center"
     [disabled]="!menuToolbarAccess.onRefresh"
+    (click)="onRefresh()"
   >
     <mat-icon>refresh</mat-icon>
   </button>

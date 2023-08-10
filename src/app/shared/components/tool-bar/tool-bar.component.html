@@ -1,14 +1,32 @@
-<mat-toolbar class="w-full flex justify-start items-center space-x-2 sticky top-0 z-50">
-  <button mat-button class="w-fit flex justify-center items-center">
+<mat-toolbar
+  class="w-full flex justify-start items-center space-x-2 sticky top-0 z-50"
+>
+  <button
+    mat-button
+    class="w-fit flex justify-center items-center"
+    [disabled]="!menuToolbarAccess.onBack"
+  >
     <mat-icon>arrow_back</mat-icon>
   </button>
-  <button mat-button class="w-fit flex justify-center items-center">
+  <button
+    mat-button
+    class="w-fit flex justify-center items-center"
+    [disabled]="!menuToolbarAccess.onSave"
+  >
     <mat-icon>save</mat-icon>
   </button>
-  <button mat-button class="w-4 flex justify-center items-center">
-    <mat-icon>delete</mat-icon> 
+  <button
+    mat-button
+    class="w-4 flex justify-center items-center"
+    [disabled]="!menuToolbarAccess.onDelete"
+  >
+    <mat-icon>delete</mat-icon>
   </button>
-  <button mat-button class="w-fit flex justify-center items-center">
+  <button
+    mat-button
+    class="w-fit flex justify-center items-center"
+    [disabled]="!menuToolbarAccess.onRefresh"
+  >
     <mat-icon>refresh</mat-icon>
   </button>
 </mat-toolbar>

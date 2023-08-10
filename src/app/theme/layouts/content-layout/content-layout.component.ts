@@ -18,15 +18,14 @@ export class ContentLayoutComponent {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.content);
-    console.log(this.dirContent);
+    // console.log(this.content);
+    // console.log(this.dirContent);
     this.loadDynamicComponent();
   }
 
   loadDynamicComponent(): void {
-    
     let component = this.dirContent[this.content];
-    console.log(component);
+    // console.log(component);
     if (component !== undefined) {
       const componentFactory =
         this.componentFactoryResolver.resolveComponentFactory(component);

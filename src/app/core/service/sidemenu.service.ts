@@ -23,6 +23,12 @@ export class SidemenuService implements sideMenuData {
       link: 'app-dashboard',
       icon: 'dashboard',
       default: true,
+      accessMenu: {
+        onBack: false,
+        onDelete: false,
+        onSave: false,
+        onRefresh: true,
+      },
       childMenu: [],
     },
   ];

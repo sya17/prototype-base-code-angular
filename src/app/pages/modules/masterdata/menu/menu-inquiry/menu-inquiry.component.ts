@@ -7,20 +7,8 @@ export interface UserData {
   id: string;
   name: string;
   progress: string;
-  fruit: string;
 }
 
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
 const NAMES: string[] = [
   'Maia',
   'Asher',
@@ -49,7 +37,7 @@ const NAMES: string[] = [
   styleUrls: ['./menu-inquiry.component.scss'],
 })
 export class MenuInquiryComponent {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
+  displayedColumns: string[] = ['id', 'name', 'progress'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
@@ -81,6 +69,5 @@ function createNewUser(id: number): UserData {
     id: id.toString(),
     name: name,
     progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
   };
 }

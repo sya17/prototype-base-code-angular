@@ -4,6 +4,7 @@ import { MenuInquiryComponent } from './menu-inquiry/menu-inquiry.component';
 import { ThemeModule } from 'src/app/theme/theme.module';
 import { MenuDetailComponent } from './menu-detail/menu-detail.component';
 import { MenuComponent } from './menu.component';
+import { MenuDetailDetailComponent } from './menu-detail-detail/menu-detail-detail.component';
 
 export const MENU_COMPONENTS = [
   MenuInquiryComponent,
@@ -12,7 +13,7 @@ export const MENU_COMPONENTS = [
 ];
 
 @NgModule({
-  declarations: [...MENU_COMPONENTS],
+  declarations: [...MENU_COMPONENTS, MenuDetailDetailComponent],
   imports: [CommonModule, ThemeModule],
   exports: [...MENU_COMPONENTS],
 })

@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        maincolor: "#215ebe",
+        maincolor: "#1e88e5",
         secondcolor: "#1d891a",
         darkcolor: "#222b45",
         lightcolor: "#ffffff",
         textcolor: "#073b4c",
-        graycolor: "#d2d6db",
+        graycolor: "#eef5f9",
         gray2color: "#ecf0f6",
 
         infobuttoncolor: "#60afff",

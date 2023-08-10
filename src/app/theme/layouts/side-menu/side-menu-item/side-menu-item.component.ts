@@ -9,7 +9,7 @@ import { AlertSnackbarService } from 'src/app/core/utils/alert-snackbar.service'
   template: `<div
     class="w-full {{
       colorMenu
-    }} rounded-md inline-flex justify-between items-center px-3 py-2 cursor-pointer hover:bg-gray2color space-x-2 truncate"
+    }} rounded-md flex justify-between items-center px-3 py-2 cursor-pointer hover:bg-gray2color space-x-2 truncate"
     [style]="customStyle"
     (click)="openChildOrRedirectTo(isHaveChild, menuDataChild!)"
   >

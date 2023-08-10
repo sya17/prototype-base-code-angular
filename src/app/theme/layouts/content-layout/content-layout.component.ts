@@ -1,5 +1,6 @@
 import {
   Component,
+  ComponentFactory,
   ComponentFactoryResolver,
   ComponentRef,
   Input,
@@ -7,6 +8,7 @@ import {
 } from '@angular/core';
 import { ComponentMap } from 'src/app/core/data/contentMapData';
 import { ContentService } from 'src/app/core/service/content.service';
+import { AlertSnackbarService } from 'src/app/core/utils/alert-snackbar.service';
 
 @Component({
   selector: 'app-content-layout',
@@ -19,22 +21,19 @@ export class ContentLayoutComponent {
   @Input() dirContent: ComponentMap = [];
 
   componentRender: ComponentRef<any> | undefined;
+  componentFactoryRenderSummon: ComponentFactory<any> | undefined;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private viewContainerRef: ViewContainerRef,
-    private contentService: ContentService
+    private contentService: ContentService,
+    private alertSnackbar: AlertSnackbarService,
   ) {}
 
   ngOnInit(): void {
     this.contentService.data$.subscribe((data) => {
-      // console.log('ContentLayoutComponent', this.idMenuModule);
-      // console.log('ContentLayoutComponent', data.id);
-      // console.log('ContentLayoutComponent', data.name);
-      // console.log('ContentLayoutComponent', this.componentRender);
       if (this.idMenuModule == data.id) {
         if (this.componentRender != null && this.componentRender != undefined) {
-          // console.log('masuk destroy');
           this.componentRender.destroy();
         }
         this.content = data.name;
@@ -44,15 +43,16 @@ export class ContentLayoutComponent {
   }
 
   loadDynamicComponent(): void {
-    // console.log(this.content);
     let component = this.dirContent[this.content];
     if (component !== null && component !== undefined) {
-      // console.log('masuk dynamic render');
-      const componentFactory =
-        this.componentFactoryResolver.resolveComponentFactory(component);
-      this.componentRender =
-        this.viewContainerRef.createComponent(componentFactory);
-
+        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+        this.componentFactoryRenderSummon = componentFactory;
+        this.componentRender = this.viewContainerRef.createComponent(componentFactory);
+      }else{
+        this.componentRender = this.viewContainerRef.createComponent(this.componentFactoryRenderSummon!);
+        this.alertSnackbar.alert('center', 'top', 'the module has not been registered');
+    }
+    if(this.componentRender != null && this.componentRender != undefined){
       // Lempar Id Menu Ke Component Yang di render
       const instance = this.componentRender.instance as any;
       instance.idMenuModule = this.idMenuModule;

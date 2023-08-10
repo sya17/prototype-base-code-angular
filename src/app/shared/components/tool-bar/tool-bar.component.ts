@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IMenuProp } from 'src/app/core/data/sidemenu/IMenu';
 import { ToolbarData } from 'src/app/core/data/toolbar';
 import { ContentService } from 'src/app/core/service/content.service';
@@ -8,7 +8,7 @@ import { ContentService } from 'src/app/core/service/content.service';
   templateUrl: './tool-bar.component.html',
   styleUrls: ['./tool-bar.component.scss'],
 })
-export class ToolBarComponent implements ToolbarData {
+export class ToolBarComponent implements OnInit, ToolbarData {
   @Input() idMenu: string = '';
   @Input() menuToolbarAccess: IMenuProp = {
     onBack: true,
@@ -18,6 +18,10 @@ export class ToolBarComponent implements ToolbarData {
   };
 
   constructor(private contentService: ContentService) {}
+
+  ngOnInit(): void {
+    this;
+  }
 
   onBack(): void {
     this.contentService.prevPage(this.idMenu);

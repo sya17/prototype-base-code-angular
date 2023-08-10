@@ -19,7 +19,7 @@ export class MenuInquiryComponent implements OnInit, OnDestroy {
     this;
   }
 
-  onNextPage() {
-    this.contentService.nextPage(this.idMenuModule, 'app-menu-detail');
+  onNextPage(toPage: string) {
+    this.contentService.nextPage(this.idMenuModule, toPage);
   }
 }

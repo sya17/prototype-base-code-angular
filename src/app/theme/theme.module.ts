@@ -13,6 +13,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { SharedModule } from '../shared/shared.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { SideMenuComponent } from './layouts/side-menu/side-menu.component';
 import { SideMenuItemComponent } from './layouts/side-menu/side-menu-item/side-menu-item.component';
 import { RouterModule } from '@angular/router';
@@ -31,6 +36,11 @@ export const AM_MODULES = [
   MatSnackBarModule,
   MatTabsModule,
   MatToolbarModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
 ];
 export const LAYOUT_COMPONENTS = [
   MainLayoutComponent,

@@ -22,7 +22,7 @@ export const listMenu: IMenu[] = [
         name: 'Menu',
         description: 'menu',
         icon: 'menu',
-        link: 'app-menu-inquiry',
+        link: 'app-menu',
         subscribe: true,
         childMenu: [],
       },

@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MenuInquiryComponent } from './menu-inquiry/menu-inquiry.component';
 import { ThemeModule } from 'src/app/theme/theme.module';
 import { MenuDetailComponent } from './menu-detail/menu-detail.component';
+import { MenuComponent } from './menu.component';
 
-export const MENU_COMPONENTS = [MenuInquiryComponent, MenuDetailComponent];
-
-export const DIR_MENU = {
-  'app-menu-inquiry': MenuInquiryComponent,
-  'app-menu-detail': MenuDetailComponent,
-}
+export const MENU_COMPONENTS = [
+  MenuInquiryComponent,
+  MenuDetailComponent,
+  MenuComponent,
+];
 
 @NgModule({
   declarations: [...MENU_COMPONENTS],

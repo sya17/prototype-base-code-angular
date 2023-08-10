@@ -17,7 +17,7 @@ export class SidemenuService implements sideMenuData {
 
   menus: IMenu[] = [
     {
-      id: 'dashboard',
+      id: '0',
       name: 'Dashboard',
       description: 'Default Dashboard',
       link: 'app-dashboard',

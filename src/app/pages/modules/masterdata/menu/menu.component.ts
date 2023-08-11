@@ -1,18 +1,8 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MenuInquiryComponent } from './menu-inquiry/menu-inquiry.component';
 import { MenuDetailComponent } from './menu-detail/menu-detail.component';
-import { ToolBarService } from 'src/app/core/service/tool-bar.service';
-import { Subscription } from 'rxjs';
 import { MenuDetailDetailComponent } from './menu-detail-detail/menu-detail-detail.component';
-import { IContentPage } from 'src/app/core/data/main/IContentPage';
 import { ContentService } from 'src/app/core/service/content.service';
-import { FormControl } from '@angular/forms';
 import { RolesInquiryComponent } from '../roles/roles-inquiry/roles-inquiry.component';
 
 @Component({

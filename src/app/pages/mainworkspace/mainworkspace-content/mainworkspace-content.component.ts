@@ -5,6 +5,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { COMPONENTS } from 'src/app/constant/foundation/foundation.constant';
+import { AlertSnackbarService } from 'src/app/core/utils/alert-snackbar.service';
 
 @Component({
   selector: 'app-mainworkspace-content',
@@ -17,7 +18,8 @@ export class MainworkspaceContentComponent {
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
-    private viewContainerRef: ViewContainerRef
+    private viewContainerRef: ViewContainerRef,
+    private alertSnackbar: AlertSnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +28,7 @@ export class MainworkspaceContentComponent {
 
   loadDynamicComponent(): void {
     let component = COMPONENTS[this.inquiry];
-    if (component !== undefined) {
+    if (component != null && component !== undefined) {
       const componentFactory =
         this.componentFactoryResolver.resolveComponentFactory(component);
       const componentRef =
@@ -35,6 +37,12 @@ export class MainworkspaceContentComponent {
       // Lempar Id Menu Ke Component Yang di render
       const instance = componentRef.instance as any;
       instance.idMenu = this.id;
+    } else {
+      this.alertSnackbar.alert(
+        'center',
+        'top',
+        'the module has not been registered'
+      );
     }
   }
 }

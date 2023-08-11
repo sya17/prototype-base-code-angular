@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IMenuProp } from 'src/app/core/data/sidemenu/IMenu';
+import { IAccessMenu } from 'src/app/core/data/sidemenu/IMenu';
 import { ToolbarData } from 'src/app/core/data/toolbar';
 import { ContentService } from 'src/app/core/service/content.service';
 
@@ -10,11 +10,12 @@ import { ContentService } from 'src/app/core/service/content.service';
 })
 export class ToolBarComponent implements OnInit, ToolbarData {
   @Input() idMenu: string = '';
-  @Input() menuToolbarAccess: IMenuProp = {
+  @Input() menuToolbarAccess: IAccessMenu = {
     onBack: true,
     onDelete: true,
     onRefresh: true,
     onSave: true,
+    onNew: true,
   };
 
   constructor(private contentService: ContentService) {}
@@ -34,5 +35,8 @@ export class ToolBarComponent implements OnInit, ToolbarData {
   }
   onRefresh(): void {
     throw new Error('Method not implemented.');
+  }
+  onNew(): void {
+    this.contentService.nextContentPage();
   }
 }

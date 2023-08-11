@@ -10,8 +10,16 @@ export class MenuDetailComponent {
   @Input() idMenuModule: string = '';
   constructor(private contentService: ContentService) {}
 
+  newPage: string = 'app-menu-detail-detail';
+
   ngOnInit(): void {
-    this;
+    this.contentService.addContent(this.idMenuModule, this.newPage, {
+      onBack: true,
+      onDelete: true,
+      onRefresh: true,
+      onSave: true,
+      onNew: false,
+    });
   }
 
   ngOnDestroy(): void {

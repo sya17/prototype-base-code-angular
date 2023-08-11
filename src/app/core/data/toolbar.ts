@@ -3,4 +3,5 @@ export abstract class ToolbarData {
   abstract onSave(): void;
   abstract onDelete(): void;
   abstract onRefresh(): void;
+  abstract onNew(): void;
 }

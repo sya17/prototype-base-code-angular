@@ -50,7 +50,7 @@ export class SideMenuItemComponent implements OnInit {
       if (isHaveChild) {
         this.parent?.clickOpenChild();
       } else {
-        this.sideMenuService.openMenu(menu);
+        this.sideMenuService.openTabs(menu);
         this.contentService.initialize(menu.id);
       }
     } else {

@@ -9,6 +9,7 @@ import {
 import { ComponentMap } from 'src/app/core/data/contentMapData';
 import { ContentService } from 'src/app/core/service/content.service';
 import { AlertSnackbarService } from 'src/app/core/utils/alert-snackbar.service';
+import { StringUtil } from 'src/app/core/utils/string-util';
 
 @Component({
   selector: 'app-content-layout',
@@ -27,7 +28,7 @@ export class ContentLayoutComponent {
     private componentFactoryResolver: ComponentFactoryResolver,
     private viewContainerRef: ViewContainerRef,
     private contentService: ContentService,
-    private alertSnackbar: AlertSnackbarService,
+    private alertSnackbar: AlertSnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -45,14 +46,22 @@ export class ContentLayoutComponent {
   loadDynamicComponent(): void {
     let component = this.dirContent[this.content];
     if (component !== null && component !== undefined) {
-        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-        this.componentFactoryRenderSummon = componentFactory;
-        this.componentRender = this.viewContainerRef.createComponent(componentFactory);
-      }else{
-        this.componentRender = this.viewContainerRef.createComponent(this.componentFactoryRenderSummon!);
-        this.alertSnackbar.alert('center', 'top', 'the module has not been registered');
+      const componentFactory =
+        this.componentFactoryResolver.resolveComponentFactory(component);
+      this.componentFactoryRenderSummon = componentFactory;
+      this.componentRender =
+        this.viewContainerRef.createComponent(componentFactory);
+    // } else {
+    //   this.componentRender = this.viewContainerRef.createComponent(
+    //     this.componentFactoryRenderSummon!
+    //   );
+    //   this.alertSnackbar.alert(
+    //     'center',
+    //     'top',
+    //     'the module has not been registered'
+    //   );
     }
-    if(this.componentRender != null && this.componentRender != undefined){
+    if (this.componentRender != null && this.componentRender != undefined) {
       // Lempar Id Menu Ke Component Yang di render
       const instance = this.componentRender.instance as any;
       instance.idMenuModule = this.idMenuModule;

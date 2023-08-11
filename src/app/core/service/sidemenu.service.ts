@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { IMenu } from '../data/sidemenu/IMenu';
-import { StringUtil } from '../utils/string-util';
+import { IAccessMenu, IMenu } from '../data/sidemenu/IMenu';
 import { sideMenuData } from '../data/sidemenu/sideMenuData';
-import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
+import { StringUtil } from '../utils/string-util';
+import { AlertSnackbarService } from '../utils/alert-snackbar.service';
 
 interface ITabActive {
   id: string;
@@ -13,9 +13,9 @@ interface ITabActive {
   providedIn: 'root',
 })
 export class SidemenuService implements sideMenuData {
-  constructor() {}
+  constructor(private alertSnackbar: AlertSnackbarService) {}
 
-  menus: IMenu[] = [
+  tabs: IMenu[] = [
     {
       id: '0',
       name: 'Dashboard',
@@ -28,26 +28,42 @@ export class SidemenuService implements sideMenuData {
         onDelete: false,
         onSave: false,
         onRefresh: true,
+        onNew: false,
       },
       childMenu: [],
     },
   ];
   selected = new FormControl(0);
 
-  openMenu(menuData: IMenu) {
-    let menu = this.menus.find((res) => res.id == menuData.id);
-    if (menu == null || menu == undefined) {
-      this.menus.push(menuData);
-      this.selected.setValue(this.menus.length - 1);
+  openTabs(menuData: IMenu) {
+    if (StringUtil.isNotNullOrEmpty(menuData?.link)) {
+      let menu = this.tabs.find((res) => res.id == menuData.id);
+      if (menu == null || menu == undefined) {
+        this.tabs.push(menuData);
+        this.selected.setValue(this.tabs.length);
+      } else {
+        let idx = this.tabs.indexOf(menu);
+        this.selected.setValue(idx);
+      }
     } else {
-      let idx = this.menus.indexOf(menu);
-      this.selected.setValue(idx);
+      this.alertSnackbar.alert(
+        'center',
+        'top',
+        'the module has not been registered'
+      );
     }
   }
 
-  closeMenu(menuData: IMenu) {
-    let menu: IMenu = this.menus.find((res) => res.id == menuData.id)!;
-    let idx = this.menus.indexOf(menu);
-    this.menus.splice(idx, 1);
+  closeTabs(menuData: IMenu) {
+    let menu: IMenu = this.tabs.find((res) => res.id == menuData.id)!;
+    let idx = this.tabs.indexOf(menu);
+    this.tabs.splice(idx, 1);
+  }
+
+  setAccessMenu(id: string, accessMenu: IAccessMenu) {
+    let menu: IMenu = this.tabs.find((res) => res.id == id)!;
+    if (menu != null && menu != undefined) {
+      menu.accessMenu = accessMenu;
+    }
   }
 }

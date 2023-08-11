@@ -6,13 +6,14 @@ export interface IMenu {
   icon?: string;
   default?: boolean;
   subscribe?: boolean;
-  accessMenu?: IMenuProp | null;
+  accessMenu?: IAccessMenu | null;
   childMenu?: IMenu[];
 }
 
-export interface IMenuProp {
+export interface IAccessMenu {
   onBack?: boolean;
   onSave?: boolean;
   onDelete?: boolean;
   onRefresh?: boolean;
+  onNew?: boolean;
 }

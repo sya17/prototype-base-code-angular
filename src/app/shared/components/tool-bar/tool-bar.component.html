@@ -1,36 +1,42 @@
 <mat-toolbar
-  class="w-full flex justify-start items-center space-x-2 sticky top-0 z-50"
+  class="w-full flex justify-between items-center px-2 top-0 z-50"
 >
-  <button
-    mat-button
-    class="w-fit flex justify-center items-center"
-    [disabled]="!menuToolbarAccess.onBack"
-    (click)="onBack()"
-  >
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-  <button
-    mat-button
-    class="w-fit flex justify-center items-center"
-    [disabled]="!menuToolbarAccess.onSave"
-    (click)="onSave()"
-  >
-    <mat-icon>save</mat-icon>
-  </button>
-  <button
-    mat-button
-    class="w-4 flex justify-center items-center"
-    [disabled]="!menuToolbarAccess.onDelete"
-    (click)="onDelete()"
-  >
-    <mat-icon>delete</mat-icon>
-  </button>
-  <button
-    mat-button
-    class="w-fit flex justify-center items-center"
-    [disabled]="!menuToolbarAccess.onRefresh"
-    (click)="onRefresh()"
-  >
-    <mat-icon>refresh</mat-icon>
+  <div class="w-full flex justify-start items-center space-x-2">
+    <button
+      mat-button
+      class="w-fit flex justify-center items-center"
+      [disabled]="!menuToolbarAccess.onBack"
+      (click)="onBack()"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button
+      mat-button
+      class="w-fit flex justify-center items-center"
+      [disabled]="!menuToolbarAccess.onSave"
+      (click)="onSave()"
+    >
+      <mat-icon>save</mat-icon>
+    </button>
+    <button
+      mat-button
+      class="w-4 flex justify-center items-center"
+      [disabled]="!menuToolbarAccess.onDelete"
+      (click)="onDelete()"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button
+      mat-button
+      class="w-fit flex justify-center items-center"
+      [disabled]="!menuToolbarAccess.onRefresh"
+      (click)="onRefresh()"
+    >
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+  <button mat-button class="float-right" *ngIf="menuToolbarAccess.onNew" (click)="onNew()">
+    <mat-icon> add </mat-icon>
+    New
   </button>
 </mat-toolbar>

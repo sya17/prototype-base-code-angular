@@ -1,8 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatTabGroup } from '@angular/material/tabs';
-import { COMPONENTS } from 'src/app/constant/foundation/foundation.constant';
-import { IMenu, IMenuProp } from 'src/app/core/data/sidemenu/IMenu';
+import { IMenu, IAccessMenu } from 'src/app/core/data/sidemenu/IMenu';
 import { ContentService } from 'src/app/core/service/content.service';
 import { SidemenuService } from 'src/app/core/service/sidemenu.service';
 
@@ -21,21 +19,21 @@ export class MainworkspaceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.tabs = this.sideMenuService.menus;
+    this.tabs = this.sideMenuService.tabs;
     this.selected = this.sideMenuService.selected;
   }
 
   onCloseMenu(menu: IMenu) {
-    this.sideMenuService.closeMenu(menu);
+    this.sideMenuService.closeTabs(menu);
     this.contentService.removePage(menu.id);
   }
 
-  checkAccessMenu(acMenu: IMenuProp): IMenuProp {
+  checkAccessMenu(acMenu: IAccessMenu): IAccessMenu {
     return acMenu !== null &&
       acMenu !== undefined &&
       acMenu != null &&
       acMenu != undefined
       ? acMenu
-      : { onBack: true, onDelete: true, onRefresh: true, onSave: true };
+      : { onBack: true, onDelete: true, onRefresh: true, onSave: true , onNew: true};
   }
 }

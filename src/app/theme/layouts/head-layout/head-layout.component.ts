@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
 import { MainLayoutComponent } from '../main-layout/main-layout.component';
 
 @Component({
@@ -9,6 +8,9 @@ import { MainLayoutComponent } from '../main-layout/main-layout.component';
 })
 export class HeadLayoutComponent {
   constructor(private mainComp: MainLayoutComponent) {}
+
+  @Input() closeSideVisible: boolean = true;
+
   closeSide() {
     this.mainComp.onCloseSide();
   }

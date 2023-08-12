@@ -1,10 +1,14 @@
 <mat-drawer-container class="w-full h-full flex" autosize>
   <!-- side -->
-  <mat-drawer #drawer class="w-[20%] h-full" mode="side" opened="">
+  <mat-drawer
+    #drawer
+    class="w-[20%] h-full"
+    mode="side"
+    [opened]="openedSideMenu"
+  >
     <ng-content select="app-side-menu"></ng-content>
   </mat-drawer>
 
-  
   <ng-container class="w-full h-full flex flex-col">
     <!-- top -->
     <ng-content select="app-head-layout"></ng-content>

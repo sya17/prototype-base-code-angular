@@ -37,6 +37,6 @@ export class ToolBarComponent implements OnInit, ToolbarData {
     throw new Error('Method not implemented.');
   }
   onNew(): void {
-    this.contentService.nextContentPage();
+    this.contentService.nextContentPage(this.idMenu);
   }
 }

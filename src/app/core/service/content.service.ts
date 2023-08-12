@@ -41,8 +41,12 @@ export class ContentService {
     this.nextContent = { id: id, name: page };
   }
 
-  nextContentPage() {
-    if (this.nextContent != null && this.nextContent != undefined) {
+  nextContentPage(id: string) {
+    if (
+      this.nextContent != null &&
+      this.nextContent != undefined &&
+      this.nextContent.id == id
+    ) {
       this.nextPage(this.nextContent.id, this.nextContent.name);
     }
   }

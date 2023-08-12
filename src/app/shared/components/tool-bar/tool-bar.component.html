@@ -35,8 +35,10 @@
       <mat-icon>refresh</mat-icon>
     </button>
   </div>
-  <button mat-button class="float-right" *ngIf="menuToolbarAccess.onNew" (click)="onNew()">
-    <mat-icon> add </mat-icon>
-    New
-  </button>
+  <div class="bg-primarybuttoncolor text-white rounded-md hover:opacity-90">
+    <button mat-button class="float-right bg-primarybuttoncolor" *ngIf="menuToolbarAccess.onNew" (click)="onNew()">
+      <mat-icon> add </mat-icon>
+      New
+    </button>
+  </div>
 </mat-toolbar>

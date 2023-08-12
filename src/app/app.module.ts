@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ThemeModule } from './theme/theme.module';
 import { SharedModule } from './shared/shared.module';
+import {
+  ALL_CONSTANT,
+  appInitializerFactory,
+} from './constant/constant.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,7 +22,13 @@ import { SharedModule } from './shared/shared.module';
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    // {
+    //   provide: ALL_CONSTANT,
+    //   useFactory: appInitializerFactory,
+    //   multi: true,
+    // },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

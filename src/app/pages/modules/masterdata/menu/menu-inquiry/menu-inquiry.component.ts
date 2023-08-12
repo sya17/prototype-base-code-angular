@@ -1,4 +1,16 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { paginationConstant } from 'src/app/constant/tables/pagination.constant';
 import { ContentService } from 'src/app/core/service/content.service';
 
 @Component({
@@ -6,10 +18,13 @@ import { ContentService } from 'src/app/core/service/content.service';
   templateUrl: './menu-inquiry.component.html',
   styleUrls: ['./menu-inquiry.component.scss'],
 })
-export class MenuInquiryComponent implements OnInit, OnDestroy {
+export class MenuInquiryComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() idMenuModule: string = '';
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  @Output() pagination = paginationConstant.ROWS_PER_PAGE;
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  @ViewChild(MatSort) sort: MatSort | undefined;
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   newPage: string = 'app-menu-detail';
 
@@ -27,6 +42,11 @@ export class MenuInquiryComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this;
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator!;
+    this.dataSource.sort = this.sort!;
   }
 
   onNextPage(toPage: string) {

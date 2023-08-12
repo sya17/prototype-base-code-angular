@@ -1,3 +1,40 @@
-<p>menu-detail works!</p>
-
-<!-- <button mat-button (click)="onNextPage()">NEXT BUTTON TO DETAIL DETAIL</button> -->
+<div class="w-full height-content">
+  <form [action]="onActionForm()" class="w-full h-full flex flex-col space-y-2">
+    <div class="w-full h-full flex space-x-2">
+      <div
+        class="w-full h-full flex flex-col justify-center items-start space-y-2"
+      >
+        <app-input placeholder="menu id" class="w-full"></app-input>
+        <mat-form-field>
+          <mat-label>Select</mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Textarea</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </div>
+      <div class="w-full h-full flex flex-col justify-center items-start">
+        <mat-form-field>
+          <mat-label>Input</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Select</mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Textarea</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="w-full h-full">Tabs Detail</div>
+  </form>
+</div>

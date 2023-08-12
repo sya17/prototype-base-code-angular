@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -8,4 +9,5 @@ import { Component, Input } from '@angular/core';
 export class InputComponent {
   @Input() placeholder: string = '';
   @Input() height: string = '';
+  @Input() control = new FormControl('');
 }

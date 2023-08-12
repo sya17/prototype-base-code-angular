@@ -29,4 +29,8 @@ export class MenuDetailComponent {
   onNextPage() {
     this.contentService.nextPage(this.idMenuModule, 'app-menu-detail-detail');
   }
+
+  onActionForm(){
+    
+  }
 }

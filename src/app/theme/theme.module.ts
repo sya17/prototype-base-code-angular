@@ -24,6 +24,7 @@ import { RouterModule } from '@angular/router';
 import { SideMenuListComponent } from './layouts/side-menu/side-menu-list/side-menu-list.component';
 import { HeadLayoutComponent } from './layouts/head-layout/head-layout.component';
 import { ContentLayoutComponent } from './layouts/content-layout/content-layout.component';
+import { MatSelectModule } from '@angular/material/select';
 
 export const AM_MODULES = [
   MatSidenavModule,
@@ -41,6 +42,7 @@ export const AM_MODULES = [
   MatTableModule,
   MatSortModule,
   MatPaginatorModule,
+  MatSelectModule
 ];
 export const LAYOUT_COMPONENTS = [
   MainLayoutComponent,
@@ -63,6 +65,7 @@ export const OTHERS_MODULE = [ReactiveFormsModule, RouterModule];
     ...LAYOUT_COMPONENTS,
     ...CUSTOM_COMPONENTS,
     ...AM_MODULES,
+    ...OTHERS_MODULE
   ],
   declarations: [...LAYOUT_COMPONENTS, ...PIPES, ...CUSTOM_COMPONENTS],
 })

@@ -4,7 +4,10 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-pages',
-  template: `<app-main-layout [openedSideMenu]="openedSideMenu">
+  template: `<app-main-layout
+    [openedSideMenu]="openedSideMenu"
+    class="w-full h-full "
+  >
     <app-side-menu> </app-side-menu>
     <app-head-layout [closeSideVisible]="openedSideMenu"></app-head-layout>
     <app-mainworkspace></app-mainworkspace>

@@ -46,10 +46,9 @@ $base-code-angular-theme: mat.define-light-theme(
 @tailwind components;
 @tailwind utilities;
 
-.height-top{
+.height-top {
   height: 8%;
 }
-
 
 html,
 body {
@@ -61,7 +60,6 @@ body {
   color: $text-color;
 }
 
-
 /* width */
 ::-webkit-scrollbar {
   width: 6px;
@@ -69,17 +67,22 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  // box-shadow: inset 0 0 5px grey; 
+  // box-shadow: inset 0 0 5px grey;
   border-radius: 7px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $gray-color; 
+  background: $gray-color;
   border-radius: 7px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $gray-color; 
+  background: $gray-color;
+}
+
+.height-content-tables {
+  overflow: auto;
+  height: calc(100vh - 33vh);
 }

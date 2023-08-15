@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ThemeModule } from './theme/theme.module';
-import { SharedModule } from './shared/shared.module';
 import {
   ALL_CONSTANT,
   appInitializerFactory,
@@ -20,7 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    SharedModule.forRoot(),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
   ],

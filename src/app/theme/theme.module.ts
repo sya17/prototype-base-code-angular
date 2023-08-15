@@ -11,7 +11,6 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
-import { SharedModule } from '../shared/shared.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -25,6 +24,10 @@ import { SideMenuListComponent } from './layouts/side-menu/side-menu-list/side-m
 import { HeadLayoutComponent } from './layouts/head-layout/head-layout.component';
 import { ContentLayoutComponent } from './layouts/content-layout/content-layout.component';
 import { MatSelectModule } from '@angular/material/select';
+import { CustomInputComponent } from './components/custom-input/custom-input.component';
+import { CustomTextareaComponent } from './components/custom-textarea/custom-textarea.component';
+import { InputComponent } from './components/input/input.component';
+import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 
 export const AM_MODULES = [
   MatSidenavModule,
@@ -42,7 +45,8 @@ export const AM_MODULES = [
   MatTableModule,
   MatSortModule,
   MatPaginatorModule,
-  MatSelectModule
+  MatSelectModule,
+  MatFormFieldModule,
 ];
 export const LAYOUT_COMPONENTS = [
   MainLayoutComponent,
@@ -52,15 +56,20 @@ export const LAYOUT_COMPONENTS = [
   HeadLayoutComponent,
   ContentLayoutComponent,
 ];
+export const CUSTOM_COMPONENTS = [
+  InputComponent,
+  ToolBarComponent,
+  CustomInputComponent,
+  CustomTextareaComponent,
+];
+
 export const PIPES = [];
-export const CUSTOM_COMPONENTS = [];
 export const OTHERS_MODULE = [ReactiveFormsModule, RouterModule];
 
 @NgModule({
-  imports: [CommonModule, SharedModule, ...AM_MODULES, ...OTHERS_MODULE],
+  imports: [CommonModule, ...AM_MODULES, ...OTHERS_MODULE],
   exports: [
     CommonModule,
-    SharedModule,
     ...PIPES,
     ...LAYOUT_COMPONENTS,
     ...CUSTOM_COMPONENTS,

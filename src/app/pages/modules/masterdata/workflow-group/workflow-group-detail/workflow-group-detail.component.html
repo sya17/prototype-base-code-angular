@@ -4,9 +4,9 @@
         <div
           class="w-full h-full flex flex-col justify-center items-start space-y-2"
         >
-          <app-custom-input placeholder="name" class="w-full" controlName="name"></app-custom-input>
-          <app-custom-input placeholder="table name" class="w-full" controlName="description"></app-custom-input>
-          <app-custom-input placeholder="description" class="w-full" controlName="table_name"></app-custom-input>
+          <app-custom-input placeholder="name" class="w-full" [parentForm]="formGroup" controlName="name"></app-custom-input>
+          <app-custom-input placeholder="table name" class="w-full" [parentForm]="formGroup" controlName="description"></app-custom-input>
+          <app-custom-input placeholder="description" class="w-full" [parentForm]="formGroup" controlName="table_name"></app-custom-input>
         </div>
         <!-- <div class="w-full h-full flex flex-col justify-center items-start">
         </div> -->

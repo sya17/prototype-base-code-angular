@@ -1,4 +1,4 @@
-<mat-form-field class="w-full" [formControlName]="controlName!">
+<mat-form-field class="w-full" [formGroup]="parentForm!">
   <mat-label>{{ placeholder }}</mat-label>
-  <input matInput />
+  <input matInput formControlName="{{ controlName! }}" />
 </mat-form-field>

@@ -11,6 +11,7 @@ import {
   ALL_CONSTANT,
   appInitializerFactory,
 } from './constant/constant.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SharedModule.forRoot(),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),

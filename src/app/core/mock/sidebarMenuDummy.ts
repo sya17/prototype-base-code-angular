@@ -35,6 +35,33 @@ export const listMenu: IMenu[] = [
         subscribe: true,
         childMenu: [],
       },
+      {
+        id: '1283798yufghuhui',
+        name: 'Workflow',
+        description: 'Workflow',
+        icon: 'work',
+        subscribe: true,
+        childMenu: [
+          {
+            id: '862478692873482948723984',
+            name: 'Workflow Group',
+            description: 'Workflow Group',
+            icon: 'work',
+            subscribe: true,
+            link: 'app-workflow-group',
+            childMenu: [],
+          },
+          {
+            id: '8624786928734823457892948723984',
+            name: 'Workflow',
+            description: 'Workflow',
+            icon: 'work',
+            subscribe: true,
+            link: 'app-workflow',
+            childMenu: [],
+          },
+        ],
+      },
     ],
   },
   {

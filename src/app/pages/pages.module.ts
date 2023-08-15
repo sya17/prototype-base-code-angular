@@ -9,6 +9,8 @@ import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.comp
 import { MenuModule } from './modules/masterdata/menu/menu.module';
 import { SharedModule } from '../shared/shared.module';
 import { RolesModule } from './modules/masterdata/roles/roles.module';
+import { WorkflowModule } from './modules/masterdata/workflow/workflow.module';
+import { WorkflowGroupModule } from './modules/masterdata/workflow-group/workflow-group.module';
 
 @NgModule({
   declarations: [PagesComponent, TestComponent, DashboardComponent],
@@ -18,6 +20,8 @@ import { RolesModule } from './modules/masterdata/roles/roles.module';
     ThemeModule,
     MainworkspaceModule,
     MenuModule,
+    WorkflowModule,
+    WorkflowGroupModule,
     RolesModule,
     SharedModule,
   ],

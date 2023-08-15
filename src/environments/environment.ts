@@ -10,6 +10,6 @@
 
 export const environment = {
   production: false,
-  api_url: "https://dummyjson.com",
-  api_mock_url: "https://dummyjson.com",
+  api_url: "http://localhost:7070/prototype-api/v1/",
+  api_mock_url: "http://localhost:7070/prototype-api/v1/",
 };

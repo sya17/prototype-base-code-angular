@@ -6,6 +6,8 @@ export const COMPONENTS: ComponentMap = {
   'app-dashboard': comp.DashboardComponent,
   'app-menu': comp.MenuComponent,
   'app-roles': comp.RolesComponent,
+  'app-workflow': comp.WorkflowComponent,
+  'app-workflow-group': comp.WorkflowGroupComponent,
 };
 
 export const SHOW_LIST = {
